@@ -1,7 +1,17 @@
-<section class="container">
+<section class="container" *ngIf="read">
     <h1 [translate]="'title' | translate: { language: this.language }"></h1>
 
-    <p [translate]="'description'" [translateParams]="{ perfil:this.perfil }"> description</p>
+    <p [translate]="'description'" [translateParams]="{ perfil:this.perfil }"></p>
 
     <p [translate]="'comments'" [translateParams]="{ commentId: this.commentId }"></p>
+
+
+    <div>
+        <label for="file" class="label-file" [translate]="'addPreview'"></label>
+        <span id="name" class="name" #name class="label-name"></span>
+        <input type="file" id="file" class="file" (change)="insertImage($event)" accept="image/png, image/gif, image/jpeg">
+    </div>
+
+
+    <img class="image" #image /> 
 </section>
